@@ -1,4 +1,5 @@
 let path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     mode: 'development',                                // 模式, 可以区分不同环境, 后续使用
@@ -13,9 +14,15 @@ module.exports = {
         compress: true,
         port: 8080
     },
-    resolve: {
-        alias: {
-        'vue$': 'vue/dist/vue.esm.js'                   // 用 webpack 1 时需用 'vue/dist/vue.common.js'
-        }
-    }
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
+        ]
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
 };
