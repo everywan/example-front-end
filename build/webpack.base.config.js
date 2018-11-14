@@ -6,5 +6,11 @@ module.exports = {
     output: {                                           // 构建暑促配置
         path: path.resolve(__dirname, '../dist'),       // 最终文件生成目录
         filename: './static/js/app.js'                  // 最终构建的js代码名称
+    },
+    devServer: {
+        publicPath: '/dist/',
+        contentBase: './',
+        compress: true,
+        port: 8080
     }
 };
