@@ -8,7 +8,13 @@
 <script>
 export default {
   data() {
-    return { count: 0 };
+    return {
+      count: 0
+    };
+  },
+  mounted: function(){
+    console.log("This is Hello's Mounted")
+    console.log(process.env.HOST_URL)
   }
 };
 </script>
